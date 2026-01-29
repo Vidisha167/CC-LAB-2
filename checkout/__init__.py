@@ -1,0 +1,16 @@
+from database import get_db
+
+def checkout_logic():
+    db = get_db()
+    db.row_factory = None  
+
+    events = db.execute("SELECT fee FROM events").fetchall()
+
+    # Uncomment this ONLY when your lab asks for crash screenshot
+    # 1 / 0
+
+    total = 0
+    for event in events:
+        total += event[0]
+
+    return total
